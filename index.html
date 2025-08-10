@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Network Design & Security Workshop - WP2</title>
+    <meta name="description" content="CDNS Workshop conducted in Islamabad, Pakistan - Campus Network Design & Security training for TEIN countries">
+    <meta name="keywords" content="campus network, security, workshop, TEIN, Pakistan, HEC, PERN">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1D1D1B;
+            background-color: #FCF5EC;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #F28C28, #E88C2D);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header-text .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .workshop-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+        }
+
+        .logos {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav {
+            background: #9F4B14;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            background: #F28C28;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 3rem 0;
+            margin: 2rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #9F4B14;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #F28C28, #E88C2D);
+            border-radius: 2px;
+        }
+
+        .overview {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(242, 140, 40, 0.1);
+            margin: 2rem 0;
+        }
+
+        .overview p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(242, 140, 40, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #F28C28;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(242, 140, 40, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #F28C28;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #9F4B14;
+            font-weight: 500;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(242, 140, 40, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #9F4B14;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .card li::before {
+            content: '▸';
+            color: #F28C28;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .outcome-card {
+            background: linear-gradient(135deg, #F28C28, #E88C2D);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .outcome-card:hover {
+            transform: scale(1.05);
+        }
+
+        .outcome-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0.5;
+        }
+
+        .outcome-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .outcome-card p {
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        .challenges {
+            background: #fff3e6;
+            padding: 3rem;
+            border-radius: 15px;
+            border-left: 5px solid #E88C2D;
+        }
+
+        .challenges h3 {
+            color: #9F4B14;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .challenge-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border-left: 3px solid #F28C28;
+        }
+
+        .challenge-item h4 {
+            color: #9F4B14;
+            margin-bottom: 0.5rem;
+        }
+
+        .sdg-section {
+            background: linear-gradient(135deg, #9F4B14, #F28C28);
+            color: white;
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-radius: 20px;
+        }
+
+        .sdg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .sdg-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sdg-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #1D1D1B;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            .workshop-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logos {
+                justify-content: center;
+            }
+
+            .logo {
+                height: 40px;
+            }
+
+            .section {
+                padding: 2rem 0;
+            }
+
+            .overview {
+                padding: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                gap: 1rem;
+            }
+
+            .nav-item {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #F28C28;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            background: #E88C2D;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Campus Network Design & Security Workshop</h1>
+                    <div class="subtitle">WP2 Project • 2nd Call ACA2016/376-562</div>
+                    <div class="workshop-info">
+                        <div class="info-item">
+                            <svg class="info-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>December 3-7, 2018</span>
+                        </div>
+                        <div class="info-item">
+                            <svg class="info-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Islamabad, Pakistan</span>
+                        </div>
+                        <div class="info-item">
+                            <svg class="info-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                            </svg>
+                            <span>26 Engineers Trained</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="logos">
+                    <img src="images/logos/tein-logo.png" alt="TEIN*CC" class="logo">
+                    <img src="images/logos/asia-connect-logo.png" alt="Asia Connect" class="logo">
+                    <img src="images/logos/eu-logo.png" alt="European Union" class="logo">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#overview" class="nav-item">Overview</a>
+                <a href="#objectives" class="nav-item">Objectives</a>
+                <a href="#activities" class="nav-item">Activities</a>
+                <a href="#outcomes" class="nav-item">Outcomes</a>
+                <a href="#challenges" class="nav-item">Challenges</a>
+                <a href="#future" class="nav-item">Future Directions</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="overview" class="section">
+            <div class="container">
+                <div class="overview">
+                    <p>The Campus Network Design & Security (CDNS) Workshop was a comprehensive 5-day training program conducted in Islamabad, Pakistan, under the auspices of the Higher Education Commission (HEC) and organized by the Pakistan Education and Research Network (PERN). This intensive workshop brought together 26 skilled engineers from Pakistan and TEIN partner countries including Afghanistan, Bangladesh, Bhutan, Cambodia, and Sri Lanka. The program focused on enhancing campus network design and security practices across developing Asian countries, combining theoretical knowledge with hands-on practical experience in network operations, security protocols, and collaborative development of standard operating procedures for campus networks.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">26</div>
+                        <div class="stat-label">Engineers Trained</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Countries Represented</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Training Days</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Female Participants</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="section">
+            <div class="container">
+                <h2 class="section-title">Project Objectives</h2>
+                <div class="two-column">
+                    <div class="card">
+                        <h3>Technical Excellence</h3>
+                        <ul>
+                            <li>Enhance understanding of stable and secure campus networks</li>
+                            <li>Equip engineers with advanced knowledge in routing and switching</li>
+                            <li>Master VLANs and NOC operations</li>
+                            <li>Implement IPv4/IPv6 addressing strategies</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Regional Collaboration</h3>
+                        <ul>
+                            <li>Foster collaboration across NRENs for future R&E initiatives</li>
+                            <li>Develop standardized SOPs for campus-level network security</li>
+                            <li>Create sustainable peer-to-peer support networks</li>
+                            <li>Enable cross-border knowledge sharing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="section">
+            <div class="container">
+                <h2 class="section-title">Activities Conducted</h2>
+                <div class="two-column">
+                    <div class="card">
+                        <h3>Technical Training Sessions</h3>
+                        <ul>
+                            <li>Layer 2/3 networking fundamentals</li>
+                            <li>Advanced IPv4/IPv6 addressing</li>
+                            <li>VLAN configuration and management</li>
+                            <li>EIGRP and OSPF routing protocols</li>
+                            <li>Inter-VLAN routing techniques</li>
+                            <li>NAT and ACL implementation</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Practical & Cultural Activities</h3>
+                        <ul>
+                            <li>Hands-on labs with real network equipment</li>
+                            <li>Network monitoring tools (Cacti, LibreNMS, Netflow)</li>
+                            <li>Campus security policy planning workshops</li>
+                            <li>PERN NOC facility visits</li>
+                            <li>Smart University Safe Campus (SUSC) tours</li>
+                            <li>Cultural engagements and networking dinners</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="outcomes" class="section">
+            <div class="container">
+                <h2 class="section-title">Key Outcomes</h2>
+                <div class="outcomes-grid">
+                    <div class="outcome-card">
+                        <h4>Enhanced Campus Network Skills</h4>
+                        <p>Participants gained comprehensive expertise in routing, switching, and network security, including advanced configuration of VLANs, EIGRP, OSPF, and network policy design for active campus network equipment.</p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>SOP Implementation</h4>
+                        <p>Universities across participating countries began adopting standardized operating procedures for secure and efficient network management based on best practices learned during the workshop.</p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>Regional Collaboration Network</h4>
+                        <p>Participants from TEIN countries established ongoing dialogue channels for joint proposals and cross-border collaboration, creating a sustainable regional network community.</p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>Institutional Documentation</h4>
+                        <p>Engineers developed skills to prepare comprehensive technical justifications for campus network upgrades to be submitted to their respective national authorities and funding bodies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenges" class="section">
+            <div class="container">
+                <h2 class="section-title">Challenges and Gaps</h2>
+                <div class="challenges">
+                    <div class="challenge-item">
+                        <h4>Limited Time for Deep-Dive Security Training</h4>
+                        <p>Participants noted a need for more dedicated sessions on security practices and deeper engagement with practical cybersecurity configurations to address evolving threats.</p>
+                    </div>
+                    <div class="challenge-item">
+                        <h4>Visa and Travel Delays</h4>
+                        <p>Some international participants experienced delays due to inefficient visa processing, limiting full participation from all intended countries and affecting the workshop's regional representation goals.</p>
+                    </div>
+                    <div class="challenge-item">
+                        <h4>Gender Representation Gap</h4>
+                        <p>Only 4 women (3 foreign, 1 local) attended the workshop, highlighting a significant gender gap in technical capacity-building participation that needs to be addressed in future programs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="future" class="section">
+            <div class="container">
+                <h2 class="section-title">Future Directions</h2>
+                <div class="two-column">
+                    <div class="card">
+                        <h3>Sustained Support</h3>
+                        <ul>
+                            <li>Ongoing technical advisories from PERN</li>
+                            <li>Continuous engagement with universities</li>
+                            <li>Regular campus network improvement assessments</li>
+                            <li>Post-project support and consultation</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Scaling and Enhancement</h3>
+                        <ul>
+                            <li>Joint proposals with other NRENs (Bhutan, Sri Lanka)</li>
+                            <li>Extended collaboration beyond workshop scope</li>
+                            <li>Dedicated train-the-trainer modules</li>
+                            <li>Scalable teaching capacity at university levels</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sdg-section">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">Relevant Sustainable Development Goals</h2>
+                <div class="sdg-grid">
+                    <div class="sdg-card">
+                        <div class="sdg-number">SDG 4</div>
+                        <h3>Quality Education</h3>
+                        <p>Enhancing educational infrastructure through improved campus network design and security</p>
+                    </div>
+                    <div class="sdg-card">
+                        <div class="sdg-number">SDG 9</div>
+                        <h3>Industry, Innovation, Infrastructure</h3>
+                        <p>Building resilient infrastructure and fostering innovation in network technologies</p>
+                    </div>
+                    <div class="sdg-card">
+                        <div class="sdg-number">SDG 17</div>
+                        <h3>Partnerships for the Goals</h3>
+                        <p>Strengthening regional partnerships for sustainable development through collaboration</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Campus Network Design & Security Workshop. Organized by PERN under HEC auspices.</p>
+            <p>Supported by TEIN*CC, Asia Connect, and the European Union</p>
+        </div>
+    </footer>
+
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Show/hide scroll to top button
+        const scrollToTopBtn = document.querySelector('.scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add active class to navigation items based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .nav-item.active {
+            background: #F28C28;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .card, .stat-card, .outcome-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .card:nth-child(2), .stat-card:nth-child(2), .outcome-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(3), .stat-card:nth-child(3), .outcome-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(4), .stat-card:nth-child(4), .outcome-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+    </style>
+</body>
+</html>
