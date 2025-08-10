@@ -87,8 +87,17 @@
         .logo {
             height: 60px;
             width: auto;
-            filter: brightness(0) invert(1);
             transition: transform 0.3s ease;
+        }
+
+        .logo:not(.logo-eu) {
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-eu {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px;
+            border-radius: 8px;
         }
 
         .logo:hover {
@@ -493,7 +502,7 @@
                 <div class="logos">
                     <img src="images/logos/tein-logo.png" alt="TEIN*CC" class="logo">
                     <img src="images/logos/asia-connect-logo.png" alt="Asia Connect" class="logo">
-                    <img src="images/logos/eu-logo.png" alt="European Union" class="logo">
+                    <img src="images/logos/eu-logo.png" alt="European Union" class="logo logo-eu">
                 </div>
             </div>
         </div>
